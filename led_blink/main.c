@@ -13,10 +13,10 @@ void main(void)
     // Step 3: Initialize GPIO
     InitGpio();  // Initializes all pins as GPIO
 
-    EALLOW; // Allow protected register access
-    GpioCtrlRegs.GPADIR.bit.GPIO14 = 1;   // Set GPIO31 as output
-    GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;  // Set GPIO31 as GPIO
-    EDIS;   // Disable protected register access
+    EALLOW; // Enable access to protected register
+    GpioCtrlRegs.GPADIR.bit.GPIO14 = 1;   // Set GPIO14 as output
+    GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;  // Set GPIO14 as GPIO
+    EDIS;   // Disable access to protected register
 
     // Step 4: Infinite loop to blink LED
     while(1)
